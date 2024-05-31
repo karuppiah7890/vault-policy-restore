@@ -1004,4 +1004,4 @@ error reading vault policy backup json file: open vault_policy_backup_does_NOT_e
 # Future Ideas
 
 Talking about future ideas, here are some of the ideas for the future -
-- Give warning/information to user about how restoring of root policy is not done, so that they don't have to read the docs so much to understand this information. Reasoning - This is because - empty `root` Vault Policy - nothing to restore to Vault. Also, Vault does NOT support updating it / changing it - which would happen during the restore processThe `root` policy can neither be deleted, created or updated (or changed).
+- Give warning/information to user about how restoring of `root` policy is not done, so that they don't have to read the docs so much to understand this information. Reasoning - This is because - empty `root` Vault Policy - nothing to restore to Vault. Also, Vault does NOT support updating it / changing it - which would happen during the restore processThe `root` policy can neither be deleted, created or updated (or changed).
