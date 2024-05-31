@@ -35,7 +35,7 @@ vault-policy-restore -h
 # the policy name in the JSON file will be overwritten.
 vault-policy-restore -file <path-to-vault-policy-backup-json-file>
 
-# OR
+# OR you can use --file too instead of -file
 
 vault-policy-restore --file <path-to-vault-policy-backup-json-file>
 
@@ -43,7 +43,7 @@ vault-policy-restore --file <path-to-vault-policy-backup-json-file>
 # this will just show dots (.) for progress
 vault-policy-restore -quiet -file <path-to-vault-policy-backup-json-file>
 
-# OR
+# OR you can use --quiet too instead of -quiet
 
 vault-policy-restore --quiet --file <path-to-vault-policy-backup-json-file>
 `

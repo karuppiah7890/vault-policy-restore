@@ -30,13 +30,21 @@ make
 
 ```bash
 $ ./vault-policy-restore --help
-usage: vault-policy-restore [-quiet] [-file <vault-policy-backup-json-file-path>]
+usage: vault-policy-restore [-quiet|--quiet] [-file|-file <vault-policy-backup-json-file-path>]
 
 Usage of ./vault-policy-restore:
-  -file string
-    	vault policy backup json file path (default "vault_policy_backup.json")
-  -quiet
-    	quiet progress
+
+  -file / --file string
+      vault policy backup json file path (default "vault_policy_backup.json")
+
+  -quiet / --quiet
+      quiet progress (default false).
+      By default vault-policy-restore CLI will show a lot of details
+      about the restore process and detailed progress during the
+      restore process
+
+  -h / -help / --help
+      show help
 
 examples:
 
@@ -49,7 +57,7 @@ vault-policy-restore -h
 # the policy name in the JSON file will be overwritten.
 vault-policy-restore -file <path-to-vault-policy-backup-json-file>
 
-# OR you can use `--file` too instead of `-file`
+# OR you can use --file too instead of -file
 
 vault-policy-restore --file <path-to-vault-policy-backup-json-file>
 
@@ -57,7 +65,7 @@ vault-policy-restore --file <path-to-vault-policy-backup-json-file>
 # this will just show dots (.) for progress
 vault-policy-restore -quiet -file <path-to-vault-policy-backup-json-file>
 
-# OR you can use `--quiet` too instead of `-quiet`
+# OR you can use --quiet too instead of -quiet
 
 vault-policy-restore --quiet --file <path-to-vault-policy-backup-json-file>
 ```
