@@ -8,9 +8,10 @@ import (
 	"github.com/hashicorp/vault/api"
 )
 
-var usage = `usage: vault-policy-restore [-quiet|--quiet] [-file|-file <vault-policy-backup-json-file-path>]
+var usage = `
+usage: vault-policy-restore [-quiet|--quiet] [-file|-file <vault-policy-backup-json-file-path>]
 
-Usage of ./vault-policy-restore:
+Usage of vault-policy-restore:
 
   -file / --file string
       vault policy backup json file path (default "vault_policy_backup.json")
