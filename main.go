@@ -57,15 +57,14 @@ func main() {
 	vaultPolicyBackupJsonFileName := flag.String("file", "vault_policy_backup.json", "vault policy backup json file path")
 	flag.Parse()
 
-	// TODO: Take a backup of the destination policy/policies in case it is already present,
-	// regardless of if they have the same name as source policy.
+	// TODO: Take a backup of the policy/policies in case it is already present,
+	// regardless of if they have the same name as policy in vault policy backup json file.
 	// So that we have a backup just in case, especially before overwriting.
 
-	// Question: Should we do a complete backup before doing policy copy one by one?
-	// Or should we do a backup of each policy one by one? When we copy them one by one
-	// that is. Basically - take a backup one by one, at vaultPolicyCopy() function level or
-	// take a complete backup of all destination vault policies at vaultPolicyCopyAll()
-	// function level.
+	// Question: Should we do a complete backup before doing policy restore one by one?
+	// Or should we do a backup of each policy one by one? When we restore them one by one
+	// that is. Basically - take a backup one by one, or take a complete backup of all
+	// vault policies?
 
 	config := api.DefaultConfig()
 	client, err := api.NewClient(config)
