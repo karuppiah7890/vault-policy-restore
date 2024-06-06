@@ -10,9 +10,9 @@ Note: The tool needs Vault credentials of a user/account that has access to Vaul
 
 Note: We have tested this only with some versions of Vault (like v1.15.x). So beware to test this in a testing environment with whatever version of Vault you are using, before using this in critical environments like production! Also, ensure that the testing environment is as close to your production environment as possible so that your testing makes sense
 
-Note ⚠️‼️🚨: If the Vault instance has some policies already defined with the same name as the Policies present in the Vault backup JSON file, when restoring to the Vault instance using the Vault backup JSON file, the Policies in the Vault instance will be overwritten! All the Vault Policies in Vault backup JSON file will be present in the Vault instance. If the Vault instance has some extra Vault Policies configured, it might have those untouched and intact
+Note ⚠️‼️🚨: If the Vault instance has some policies already defined with the same name as the Policies present in the Vault Policies Backup JSON file, when restoring to the Vault instance using the Vault Policies Backup JSON file, the Policies in the Vault instance will be overwritten! All the Vault Policies in Vault Policies Backup JSON file will be present in the Vault instance. If the Vault instance has some extra Vault Policies configured, it would have those untouched and intact
 
-Note: This does NOT restore the `root` Vault Policy in case one is present in the Vault Policies backup JSON file - this is because Vault does not support updating / changing the root policy - which would happen during the restore process. The `root` policy can neither be deleted, created or updated (or changed). Also, `root` Vault Policy is just an empty policy, with no content. I believe it's just a placeholder policy which is assumed to have all the access to Vault
+Note: This does NOT restore the `root` Vault Policy in case one is present in the Vault Policies Backup JSON file - this is because Vault does not support updating / changing the root policy - which would happen during the restore process. The `root` policy can neither be deleted, created or updated (or changed). Also, `root` Vault Policy is just an empty policy, with no content. I believe it's just a placeholder policy which is assumed to have all the access to Vault
 
 # Building
 
@@ -72,7 +72,7 @@ vault-policy-restore --quiet --file <path-to-vault-policy-backup-json-file>
 
 # How `vault-policy-restore` works
 
-`vault-policy-restore` expects the policies backup file to be a JSON file with content structure being similar to the ones in this example structure -
+`vault-policy-restore` expects the Vault Policies Backup file to be a JSON file with content structure being similar to the ones in this example structure -
 
 ```json
 {
@@ -106,7 +106,7 @@ So, the JSON structure looks something like -
 }
 ```
 
-That's just three policies, but the policies backup JSON file can contain any number of Vault Policies :)
+That's just three Vault Policies, but the Vault Policies Backup JSON file can contain any number of Vault Policies :)
 
 Once you have Vault Policies Backup JSON file, you just need to pass it to `vault-policy-restore` tool and it will restore it for you given a Vault instance and it's details like connectivity details etc - Hostname/IP, Port, and Vault Token with just enough access to write the Vault Policies to create and/ update Vault Policies in the Vault instance. So, that's all you need to do!
 
@@ -319,7 +319,7 @@ Code: 400. Errors:
 
 We just have `root` and `default` policies and they can't be deleted. So, let's move on
 
-Note: By the way, as mentioned before `root` policy cannot be updated or changed too, and as we can see from the output above, `root` policy cannot be deleted too. But - `default` policy can be updated or changed. We'll see that in a moment as the Vault Policy Backup JSON file has `default` policy defined in it ;) :)
+Note: By the way, as mentioned before `root` Vault Policy cannot be updated or changed too, and as we can see from the output above, `root` Vault Policy cannot be deleted too. But - `default` Vault Policy can be updated or changed. We'll see that in a moment as the Vault Policies Backup JSON file has `default` Vault Policy defined in it ;) :)
 
 Let's run the `vault-policy-restore` command now :D
 
@@ -808,7 +808,7 @@ path "secret/*" {
 }
 ```
 
-As you can see, `allow_secrets` policy's content was overwritten. It was overwritten with the `allow_secrets` policy content that was passed through the backup policies JSON file.
+As you can see, `allow_secrets` policy's content was overwritten. It was overwritten with the `allow_secrets` policy content that was passed through the Vault Policies Backup JSON file.
 
 So, this is how `vault-policy-restore` works :D
 
@@ -969,7 +969,7 @@ As you can see, the big `default` Vault policy content got overwritten / replace
 
 - If for some reason / somehow you have a `root` policy in the JSON file, it will be ignored.
 
-- As mentioned before, `vault-policy-restore` command will overwrite the Vault Policies in the Vault instance if the policies already exist in the Vault instance. So, it is recommended to make sure that you have a backup of the Vault Policies in the Vault instance before doing the restore. This includes overwriting the `default` policy too.
+- As mentioned before, `vault-policy-restore` command will overwrite the Vault Policies in the Vault instance if the policies already exist in the Vault instance. This includes overwriting the `default` Vault Policy too. So, it is recommended to make sure that you have a Backup of the Vault Policies that are present in the Vault instance before doing the restore. 
 
 # Error Scenarios
 
