@@ -9,7 +9,7 @@ import (
 )
 
 var usage = `
-usage: vault-policy-restore [-quiet|--quiet] [-file|-file <vault-policy-backup-json-file-path>]
+usage: vault-policy-restore [-quiet|--quiet] [-file|--file <vault-policy-backup-json-file-path>]
 
 Usage of vault-policy-restore:
 
